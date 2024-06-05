@@ -62,7 +62,7 @@ public class LoginView extends Stage {
         username.setTooltip(new Tooltip("Enter your username"));
         password.setMaxWidth(150);
         password.setTooltip(new Tooltip("Enter your password"));
-        vBox1.setSpacing(10);
+        vBox1.setSpacing(15);
         this.setScene(new Scene(bp, 960, 540));
         this.show();
         LoginController loginController = new LoginController(this);
