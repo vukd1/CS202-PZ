@@ -1,2 +1,2 @@
-# CS202-PZ
+ CS202-PZ
 Projektni zadatak iz predmeta CS202.
