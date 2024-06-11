@@ -9,10 +9,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
 public class LoginView extends Stage {
 
+    private LoginController loginController = new LoginController(this);
     private static LoginView loginView_instance = null;
     private Label usernameLabel = new Label("Username:");
     private Label passwordLabel = new Label("Password:");
@@ -28,6 +31,11 @@ public class LoginView extends Stage {
     private VBox vBox2 = new VBox(hBox1, hBox2, loginButton);
     private VBox vBox3 = new VBox(helpButton);
     private BorderPane centralBorderPane = new BorderPane();
+    private BorderPane errorBorderPane = new BorderPane();
+    private Label errorLabel = new Label("Database connection error!");
+    private Text errorText = new Text("Error text.");
+    private Button errorButton = new Button("Quit");
+    private VBox errorVbox = new VBox(errorText, errorButton);
 
     public static synchronized LoginView getInstance(){
         if (loginView_instance == null){
@@ -68,6 +76,14 @@ public class LoginView extends Stage {
         this.loginButton = loginButton;
     }
 
+    public Text getErrorText() {
+        return errorText;
+    }
+
+    public void setErrorText(Text errorText) {
+        this.errorText = errorText;
+    }
+
     private LoginView(){
         vBox1.setAlignment(Pos.CENTER);
         vBox1.setSpacing(5);
@@ -97,7 +113,6 @@ public class LoginView extends Stage {
         password.setTooltip(new Tooltip("Enter your password"));
         this.setScene(new Scene(centralBorderPane, 360, 360));
         this.show();
-        LoginController loginController = new LoginController(this);
 
         loginButton.setId("loginButton");
         loginButton.setOnAction(loginController);
@@ -105,5 +120,21 @@ public class LoginView extends Stage {
         password.setId("loginField");
         username.setOnAction(loginController);
         password.setOnAction(loginController);
+    }
+
+    public void dbInitErrorView(String errorText2){
+        errorBorderPane.setTop(errorLabel);
+        errorBorderPane.setCenter(errorVbox);
+        errorLabel.setFont(new Font(20));
+        errorLabel.setAlignment(Pos.CENTER);
+        errorText.setTextAlignment(TextAlignment.CENTER);
+        BorderPane.setAlignment(errorLabel, Pos.CENTER);
+        BorderPane.setAlignment(errorVbox, Pos.CENTER);
+        errorVbox.setAlignment(Pos.CENTER);
+        errorVbox.setSpacing(30);
+        errorButton.setId("lvErrorButton");
+        errorButton.setOnAction(loginController);
+        errorText.setText(errorText2);
+        this.setScene(new Scene(errorBorderPane, 360, 360));
     }
 }

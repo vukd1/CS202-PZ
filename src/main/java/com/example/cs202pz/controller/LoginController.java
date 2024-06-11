@@ -17,20 +17,15 @@ public class LoginController implements EventHandler<ActionEvent> {
         this.loginView = loginView;
     }
 
-    private boolean authenticateUser(String user, String pass){
-        if (user.equals("test1") && pass.equals("test1")) {
-            return true;
-        }
-        return false;
-    }
-
     @Override
     public void handle(ActionEvent actionEvent) {
         String id = ((Node) actionEvent.getSource()).getId();
 
         switch (id){
+            case "lvErrorButton":
+                loginView.close();
             case "loginButton":
-                if (authenticateUser(loginView.getUsername().getText(), loginView.getPassword().getText())){
+                if (DatabaseLogic.verifyCredentials(loginView.getUsername().getText(), loginView.getPassword().getText())){
                     MainHubView.getInstance().show();
                     loginView.getUsername().setText("");
                     loginView.getPassword().setText("");
