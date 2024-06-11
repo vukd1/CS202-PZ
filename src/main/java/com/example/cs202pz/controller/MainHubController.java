@@ -26,7 +26,7 @@ public class MainHubController implements EventHandler<ActionEvent> {
             case "open_loginView":
                 LoginView.getInstance().show();
                 for (StorefrontView sv : storefrontViews){
-                    sv.hide();
+                    sv.close();
                 }
                 mainHubView.hide();
                 break;

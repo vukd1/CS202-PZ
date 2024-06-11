@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 import java.util.Objects;
 
@@ -35,7 +37,17 @@ public class LoginController implements EventHandler<ActionEvent> {
                     loginView.hide();
                     break;
                 }
-                else loginView.getUsername().setText("GRESKA!");
+                else loginView.getWelcomeLabel2().setText("Credentials are incorrect!\nPlease try again");
+            case "loginField":
+                loginView.getUsername().setOnKeyPressed(keyEvent -> {
+                    if (keyEvent.getCode().equals(KeyCode.ENTER))
+                        loginView.getLoginButton().fire();
+                });
+                loginView.getPassword().setOnKeyPressed(keyEvent -> {
+                    if (keyEvent.getCode().equals(KeyCode.ENTER))
+                        loginView.getLoginButton().fire();
+                });
+                break;
         }
     }
 }
