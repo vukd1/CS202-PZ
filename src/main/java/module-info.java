@@ -8,6 +8,8 @@ module com.example.cs202pz {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
+    requires java.sql;
+    requires mysql.connector.j;
 
     exports com.example.cs202pz.main;
     opens com.example.cs202pz.main to javafx.fxml;
