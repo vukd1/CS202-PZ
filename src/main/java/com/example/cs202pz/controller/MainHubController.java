@@ -25,10 +25,11 @@ public class MainHubController implements EventHandler<ActionEvent> {
         switch (id){
             case "open_loginView":
                 LoginView.getInstance().show();
+                LoginView.getInstance().getWelcomeText().setText("Please fill in your credentials");
                 for (StorefrontView sv : storefrontViews){
                     sv.close();
                 }
-                mainHubView.hide();
+                mainHubView.close();
                 break;
             case "open_storefront":
                 storefrontViews.add(new StorefrontView());

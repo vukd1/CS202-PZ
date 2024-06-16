@@ -14,6 +14,7 @@ public class StorefrontView extends Stage {
     private Label bodyText = new Label("Storefront text");
     private Button testButton = new Button("Do something!");
     private BorderPane borderPane = new BorderPane();
+    private static int storefrontCounter = 0;
 
     public StorefrontView(){
         borderPane.setBottom(testButton);
@@ -23,6 +24,7 @@ public class StorefrontView extends Stage {
         StorefrontController storefrontController = new StorefrontController(this);
         testButton.setId("test_button");
         testButton.setOnAction(storefrontController);
+        this.setTitle(Integer.toString(storefrontCounter++));
     }
 
 

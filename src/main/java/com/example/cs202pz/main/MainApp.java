@@ -13,7 +13,8 @@ public class MainApp extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception {
-        LoginView loginView = LoginView.getInstance();
-        DatabaseLogic.initDB();
+        LoginView.getInstance();
+        DatabaseLogic.getInstance().initDB();
+        // THINK ABOUT CLOSING DATABASE CONNECTIONS AND OTHER STUFF!!!!
     }
 }

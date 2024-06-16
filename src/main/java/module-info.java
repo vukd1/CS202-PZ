@@ -10,6 +10,12 @@ module com.example.cs202pz {
     requires com.almasb.fxgl.all;
     requires java.sql;
     requires mysql.connector.j;
+    requires password4j;
+    requires org.hibernate.orm.core;
+    requires jakarta.persistence;
+    requires org.hibernate.commons.annotations;
+    requires hibernate.entitymanager;
+    requires java.naming;
 
     exports com.example.cs202pz.main;
     opens com.example.cs202pz.main to javafx.fxml;
