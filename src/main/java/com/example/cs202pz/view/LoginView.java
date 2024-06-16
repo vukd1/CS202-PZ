@@ -1,5 +1,6 @@
 package com.example.cs202pz.view;
 
+import com.example.cs202pz.controller.DatabaseLogic;
 import com.example.cs202pz.controller.LoginController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

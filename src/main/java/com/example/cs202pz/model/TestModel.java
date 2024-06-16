@@ -1,8 +1,11 @@
 package com.example.cs202pz.model;
 
+
+
 public class TestModel {
 
     private int id;
+
     private String test;
 
     public TestModel(int id, String test) {
