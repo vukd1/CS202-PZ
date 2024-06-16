@@ -4,20 +4,29 @@ import com.example.cs202pz.view.LoginView;
 import com.mysql.cj.jdbc.exceptions.CommunicationsException;
 import javafx.scene.text.Text;
 import org.controlsfx.control.tableview2.filter.filtereditor.SouthFilter;
+import com.password4j.*;
 
 import java.sql.*;
 
 public class DatabaseLogic {
 
-    private static String dbUsername = "root";
-    private static String dbPassword = "";
-    private static String dbURL = "jdbc:mysql://localhost/micropos_db";
-    private static String query = "SELECT * FROM test_table";
-    public DatabaseLogic() {
+    private static DatabaseLogic databaseLogic_instance = null;
+    private String dbUsername = "root";
+    private String dbPassword = "";
+    private String dbURL = "jdbc:mysql://localhost/micropos_db";
+    private String query = "SELECT * FROM test_table";
+    private Connection connection;
+    private Statement statement;
+    private static Hash hash;
 
+    public static synchronized DatabaseLogic getInstance(){
+        if (databaseLogic_instance == null) {
+            databaseLogic_instance = new DatabaseLogic();
+        }
+        return databaseLogic_instance;
     }
 
-    public static void initDB() throws SQLException{
+    public void initDB(){
         try{ // Driver init
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("JDBC driver initialized!");
@@ -25,26 +34,35 @@ public class DatabaseLogic {
             System.out.println("JDBC driver not initialized!");
         }
         try{ // Database init
-            Connection connection = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
+            connection = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
             System.out.println("Database connected!");
+            //
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(query);
-//            while (result.next()){ // Test loop to read data out of the test_table
-//                StringBuilder data = new StringBuilder();
-//                for (int i = 1; i <= 2; i++){
-//                    data.append(result.getString(i)).append(":");
-//                }
-//                System.out.printf(data.toString());
-//            }
+            //
         }catch (SQLException e) {
             System.out.println("Couldn't connect to database!");
             LoginView.getInstance().dbInitErrorView("The application couldn't connect to the database.\nReason: " + e.getMessage());
         }
     }
-    public static boolean verifyCredentials(String username, String password){
-        if (username.equals("test1") && password.equals("test1")) {
-            return true;
-        }
-        return false;
+
+    public void initHibernateDB(){
+
+    }
+
+    public boolean verifyCredentials(String username, String password) throws SQLException {
+        //Put in try catch
+        ResultSet result = statement.executeQuery(query);
+        // Not done, must execute complex sql query. Maybe use streams, file i/o or a lib.
+        // Quite possibly a user wrapper class is needed, which will go into the model package
+        // Use hibernate then to directly write User class object to sql database!
+        return true;
+    }
+    public void writeAccountToDB(String username, String password){
+        hash = Password.hash(password).addRandomSalt().addPepper().withScrypt();
+        System.out.println(hash.getResult());
+    }
+    public void checkHashTemp(String password){
+        System.out.println(Password.check(password, hash));
     }
 }

@@ -5,11 +5,7 @@ import com.example.cs202pz.view.MainHubView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-
-import java.util.Objects;
 
 public class LoginController implements EventHandler<ActionEvent> {
     private LoginView loginView;
@@ -22,17 +18,23 @@ public class LoginController implements EventHandler<ActionEvent> {
         String id = ((Node) actionEvent.getSource()).getId();
 
         switch (id){
+            case "createAccountButton":
+                DatabaseLogic.getInstance().writeAccountToDB(loginView.getUsername().getText(), loginView.getPassword().getText());
+                break;
             case "lvErrorButton":
                 loginView.close();
+                break;
             case "loginButton":
-                if (DatabaseLogic.verifyCredentials(loginView.getUsername().getText(), loginView.getPassword().getText())){
-                    MainHubView.getInstance().show();
-                    loginView.getUsername().setText("");
-                    loginView.getPassword().setText("");
-                    loginView.hide();
-                    break;
-                }
-                else loginView.getWelcomeLabel2().setText("Credentials are incorrect!\nPlease try again");
+                DatabaseLogic.getInstance().checkHashTemp(loginView.getPassword().getText());
+                break;
+//                if (DatabaseLogic.verifyCredentials(loginView.getUsername().getText(), loginView.getPassword().getText())){
+//                    MainHubView.getInstance().show();
+//                    loginView.getUsername().setText("");
+//                    loginView.getPassword().setText("");
+//                    loginView.close();
+//                    break;
+//                }
+//                else loginView.getWelcomeText().setText("Credentials are incorrect!\nPlease try again");
             case "loginField":
                 loginView.getUsername().setOnKeyPressed(keyEvent -> {
                     if (keyEvent.getCode().equals(KeyCode.ENTER))
