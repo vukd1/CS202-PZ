@@ -15,6 +15,5 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         LoginView.getInstance();
         DatabaseLogic.getInstance().initDB();
-        // THINK ABOUT CLOSING DATABASE CONNECTIONS AND OTHER STUFF!!!!
     }
 }

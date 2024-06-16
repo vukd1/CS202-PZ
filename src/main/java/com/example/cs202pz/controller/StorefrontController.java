@@ -1,11 +1,15 @@
 package com.example.cs202pz.controller;
 
+import com.example.cs202pz.model.StorefrontItem;
 import com.example.cs202pz.view.StorefrontView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+
+import java.util.ArrayList;
 
 public class StorefrontController implements EventHandler<ActionEvent> {
     private StorefrontView storefrontView;
@@ -19,8 +23,16 @@ public class StorefrontController implements EventHandler<ActionEvent> {
         String id = ((Node) actionEvent.getSource()).getId();
 
         switch (id){
-            case "test_button":
-                storefrontView.getBodyText().setText("Lmaoo");
+            case "calculateCartTotal":
+                int total = 0;
+                for (StorefrontItem si : storefrontView.getStorefrontItems()){
+                    if (si.getCheckBox().isSelected()){
+                        total += Integer.parseInt(si.getItemPrice().getText());
+                    }
+                }
+                System.out.println(total);
+                storefrontView.getCartTotalMenuItem().setText("Total: " + total);
+                break;
         }
     }
 }
