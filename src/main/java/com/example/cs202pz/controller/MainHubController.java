@@ -37,4 +37,28 @@ public class MainHubController implements EventHandler<ActionEvent> {
                 break;
         }
     }
+
+    @Override
+    public String toString() {
+        return "MainHubController{" +
+                "mainHubView=" + mainHubView +
+                ", storefrontViews=" + storefrontViews +
+                '}';
+    }
+
+    public MainHubView getMainHubView() {
+        return mainHubView;
+    }
+
+    public void setMainHubView(MainHubView mainHubView) {
+        this.mainHubView = mainHubView;
+    }
+
+    public ArrayList<StorefrontView> getStorefrontViews() {
+        return storefrontViews;
+    }
+
+    public void setStorefrontViews(ArrayList<StorefrontView> storefrontViews) {
+        this.storefrontViews = storefrontViews;
+    }
 }

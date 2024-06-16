@@ -53,7 +53,6 @@ public class DatabaseLogic {
             try (ResultSet rs = getUserStmt.executeQuery()) {
                 if (rs.next()) {
                     String storedHash = rs.getString("PasswordHash");
-                    //Hash hash1 = Password.hash(storedHash).addRandomSalt().addPepper().withScrypt();
                     // Check if the provided password matches the stored hash
                     System.out.println(Password.check(password, storedHash).withScrypt());
                     return Password.check(password, storedHash).withScrypt();
@@ -99,14 +98,70 @@ public class DatabaseLogic {
         return false;
     }
 
-    public void login(String username, String password){
+    @Override
+    public String toString() {
+        return "DatabaseLogic{" +
+                "dbUsername='" + dbUsername + '\'' +
+                ", dbPassword='" + dbPassword + '\'' +
+                ", dbURL='" + dbURL + '\'' +
+                ", query='" + query + '\'' +
+                ", connection=" + connection +
+                '}';
+    }
 
+    public static DatabaseLogic getDatabaseLogic_instance() {
+        return databaseLogic_instance;
     }
-    public void writeAccountToDB(String username, String password){
-        hash = Password.hash(password).addRandomSalt().addPepper().withScrypt();
-        System.out.println(hash.getResult());
+
+    public static void setDatabaseLogic_instance(DatabaseLogic databaseLogic_instance) {
+        DatabaseLogic.databaseLogic_instance = databaseLogic_instance;
     }
-    public void checkHashTemp(String password){
-        System.out.println(Password.check(password, hash));
+
+    public String getDbUsername() {
+        return dbUsername;
+    }
+
+    public void setDbUsername(String dbUsername) {
+        this.dbUsername = dbUsername;
+    }
+
+    public String getDbPassword() {
+        return dbPassword;
+    }
+
+    public void setDbPassword(String dbPassword) {
+        this.dbPassword = dbPassword;
+    }
+
+    public String getDbURL() {
+        return dbURL;
+    }
+
+    public void setDbURL(String dbURL) {
+        this.dbURL = dbURL;
+    }
+
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
+
+    public static Hash getHash() {
+        return hash;
+    }
+
+    public static void setHash(Hash hash) {
+        DatabaseLogic.hash = hash;
     }
 }

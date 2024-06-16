@@ -39,6 +39,15 @@ public class StorefrontItem {
         return checkBox;
     }
 
+    @Override
+    public String toString() {
+        return "StorefrontItem{" +
+                "itemName=" + itemName +
+                ", itemPrice=" + itemPrice +
+                ", checkBox=" + checkBox +
+                '}';
+    }
+
     public void setCheckBox(CheckBox checkBox) {
         this.checkBox = checkBox;
     }
