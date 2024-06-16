@@ -50,4 +50,19 @@ public class LoginController implements EventHandler<ActionEvent> {
                 break;
         }
     }
+
+    @Override
+    public String toString() {
+        return "LoginController{" +
+                "loginView=" + loginView +
+                '}';
+    }
+
+    public LoginView getLoginView() {
+        return loginView;
+    }
+
+    public void setLoginView(LoginView loginView) {
+        this.loginView = loginView;
+    }
 }

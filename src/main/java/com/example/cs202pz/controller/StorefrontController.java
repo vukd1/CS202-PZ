@@ -35,4 +35,19 @@ public class StorefrontController implements EventHandler<ActionEvent> {
                 break;
         }
     }
+
+    @Override
+    public String toString() {
+        return "StorefrontController{" +
+                "storefrontView=" + storefrontView +
+                '}';
+    }
+
+    public StorefrontView getStorefrontView() {
+        return storefrontView;
+    }
+
+    public void setStorefrontView(StorefrontView storefrontView) {
+        this.storefrontView = storefrontView;
+    }
 }

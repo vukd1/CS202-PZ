@@ -65,6 +65,25 @@ public class StorefrontView extends Stage {
         calculateCartTotal.setOnAction(storefrontController);
     }
 
+    @Override
+    public String toString() {
+        return "StorefrontView{" +
+                "menuBar=" + menuBar +
+                ", actionsMenu=" + actionsMenu +
+                ", itemsMenu=" + itemsMenu +
+                ", filtersMenu=" + filtersMenu +
+                ", cartMenu=" + cartMenu +
+                ", cartTotalMenuItem=" + cartTotalMenuItem +
+                ", borderPane=" + borderPane +
+                ", centerGridPane=" + centerGridPane +
+                ", centerVbox=" + centerVbox +
+                ", centerBorderPane=" + centerBorderPane +
+                ", cartTotal=" + cartTotal +
+                ", calculateCartTotal=" + calculateCartTotal +
+                ", storefrontItems=" + storefrontItems +
+                '}';
+    }
+
     public static int getStorefrontCounter() {
         return storefrontCounter;
     }

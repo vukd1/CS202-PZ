@@ -48,6 +48,178 @@ public class LoginView extends Stage {
         return loginView_instance;
     }
 
+    @Override
+    public String toString() {
+        return "LoginView{" +
+                "loginController=" + loginController +
+                ", usernameLabel=" + usernameLabel +
+                ", passwordLabel=" + passwordLabel +
+                ", username=" + username +
+                ", password=" + password +
+                ", loginButton=" + loginButton +
+                ", createAccountButton=" + createAccountButton +
+                ", welcomeLabel1=" + welcomeLabel1 +
+                ", welcomeText=" + welcomeText +
+                ", helpButton=" + helpButton +
+                ", vBox1=" + vBox1 +
+                ", hBox1=" + hBox1 +
+                ", hBox2=" + hBox2 +
+                ", hBox3=" + hBox3 +
+                ", vBox2=" + vBox2 +
+                ", vBox3=" + vBox3 +
+                ", centralBorderPane=" + centralBorderPane +
+                ", errorBorderPane=" + errorBorderPane +
+                ", errorLabel=" + errorLabel +
+                ", errorText=" + errorText +
+                ", errorButton=" + errorButton +
+                ", errorVbox=" + errorVbox +
+                '}';
+    }
+
+    public LoginController getLoginController() {
+        return loginController;
+    }
+
+    public void setLoginController(LoginController loginController) {
+        this.loginController = loginController;
+    }
+
+    public static LoginView getLoginView_instance() {
+        return loginView_instance;
+    }
+
+    public static void setLoginView_instance(LoginView loginView_instance) {
+        LoginView.loginView_instance = loginView_instance;
+    }
+
+    public Label getUsernameLabel() {
+        return usernameLabel;
+    }
+
+    public void setUsernameLabel(Label usernameLabel) {
+        this.usernameLabel = usernameLabel;
+    }
+
+    public Label getPasswordLabel() {
+        return passwordLabel;
+    }
+
+    public void setPasswordLabel(Label passwordLabel) {
+        this.passwordLabel = passwordLabel;
+    }
+
+    public Button getCreateAccountButton() {
+        return createAccountButton;
+    }
+
+    public void setCreateAccountButton(Button createAccountButton) {
+        this.createAccountButton = createAccountButton;
+    }
+
+    public Label getWelcomeLabel1() {
+        return welcomeLabel1;
+    }
+
+    public void setWelcomeLabel1(Label welcomeLabel1) {
+        this.welcomeLabel1 = welcomeLabel1;
+    }
+
+    public Label getHelpButton() {
+        return helpButton;
+    }
+
+    public void setHelpButton(Label helpButton) {
+        this.helpButton = helpButton;
+    }
+
+    public VBox getvBox1() {
+        return vBox1;
+    }
+
+    public void setvBox1(VBox vBox1) {
+        this.vBox1 = vBox1;
+    }
+
+    public HBox gethBox1() {
+        return hBox1;
+    }
+
+    public void sethBox1(HBox hBox1) {
+        this.hBox1 = hBox1;
+    }
+
+    public HBox gethBox2() {
+        return hBox2;
+    }
+
+    public void sethBox2(HBox hBox2) {
+        this.hBox2 = hBox2;
+    }
+
+    public HBox gethBox3() {
+        return hBox3;
+    }
+
+    public void sethBox3(HBox hBox3) {
+        this.hBox3 = hBox3;
+    }
+
+    public VBox getvBox2() {
+        return vBox2;
+    }
+
+    public void setvBox2(VBox vBox2) {
+        this.vBox2 = vBox2;
+    }
+
+    public VBox getvBox3() {
+        return vBox3;
+    }
+
+    public void setvBox3(VBox vBox3) {
+        this.vBox3 = vBox3;
+    }
+
+    public BorderPane getCentralBorderPane() {
+        return centralBorderPane;
+    }
+
+    public void setCentralBorderPane(BorderPane centralBorderPane) {
+        this.centralBorderPane = centralBorderPane;
+    }
+
+    public BorderPane getErrorBorderPane() {
+        return errorBorderPane;
+    }
+
+    public void setErrorBorderPane(BorderPane errorBorderPane) {
+        this.errorBorderPane = errorBorderPane;
+    }
+
+    public Label getErrorLabel() {
+        return errorLabel;
+    }
+
+    public void setErrorLabel(Label errorLabel) {
+        this.errorLabel = errorLabel;
+    }
+
+    public Button getErrorButton() {
+        return errorButton;
+    }
+
+    public void setErrorButton(Button errorButton) {
+        this.errorButton = errorButton;
+    }
+
+    public VBox getErrorVbox() {
+        return errorVbox;
+    }
+
+    public void setErrorVbox(VBox errorVbox) {
+        this.errorVbox = errorVbox;
+    }
+
     public Text getWelcomeText() {
         return welcomeText;
     }

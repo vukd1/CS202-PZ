@@ -71,4 +71,125 @@ public class MainHubView extends Stage {
         openStorefrontButton.setOnAction(mainHubController);
     }
 
+    @Override
+    public String toString() {
+        return "MainHubView{" +
+                "logOutButton=" + logOutButton +
+                ", topLabel=" + topLabel +
+                ", openStorefrontButton=" + openStorefrontButton +
+                ", viewAllStorefrontsButton=" + viewAllStorefrontsButton +
+                ", statisticsButton=" + statisticsButton +
+                ", quickStatsPreview=" + quickStatsPreview +
+                ", bp=" + bp +
+                ", topHbox=" + topHbox +
+                ", vBox1=" + vBox1 +
+                ", vBox2=" + vBox2 +
+                ", lowerHbox=" + lowerHbox +
+                ", centerHbox=" + centerHbox +
+                '}';
+    }
+
+    public static MainHubView getMainHubView_instance() {
+        return mainHubView_instance;
+    }
+
+    public static void setMainHubView_instance(MainHubView mainHubView_instance) {
+        MainHubView.mainHubView_instance = mainHubView_instance;
+    }
+
+    public Button getLogOutButton() {
+        return logOutButton;
+    }
+
+    public void setLogOutButton(Button logOutButton) {
+        this.logOutButton = logOutButton;
+    }
+
+    public Label getTopLabel() {
+        return topLabel;
+    }
+
+    public void setTopLabel(Label topLabel) {
+        this.topLabel = topLabel;
+    }
+
+    public Button getOpenStorefrontButton() {
+        return openStorefrontButton;
+    }
+
+    public void setOpenStorefrontButton(Button openStorefrontButton) {
+        this.openStorefrontButton = openStorefrontButton;
+    }
+
+    public Button getViewAllStorefrontsButton() {
+        return viewAllStorefrontsButton;
+    }
+
+    public void setViewAllStorefrontsButton(Button viewAllStorefrontsButton) {
+        this.viewAllStorefrontsButton = viewAllStorefrontsButton;
+    }
+
+    public Button getStatisticsButton() {
+        return statisticsButton;
+    }
+
+    public void setStatisticsButton(Button statisticsButton) {
+        this.statisticsButton = statisticsButton;
+    }
+
+    public TextArea getQuickStatsPreview() {
+        return quickStatsPreview;
+    }
+
+    public void setQuickStatsPreview(TextArea quickStatsPreview) {
+        this.quickStatsPreview = quickStatsPreview;
+    }
+
+    public BorderPane getBp() {
+        return bp;
+    }
+
+    public void setBp(BorderPane bp) {
+        this.bp = bp;
+    }
+
+    public HBox getTopHbox() {
+        return topHbox;
+    }
+
+    public void setTopHbox(HBox topHbox) {
+        this.topHbox = topHbox;
+    }
+
+    public VBox getvBox1() {
+        return vBox1;
+    }
+
+    public void setvBox1(VBox vBox1) {
+        this.vBox1 = vBox1;
+    }
+
+    public VBox getvBox2() {
+        return vBox2;
+    }
+
+    public void setvBox2(VBox vBox2) {
+        this.vBox2 = vBox2;
+    }
+
+    public HBox getLowerHbox() {
+        return lowerHbox;
+    }
+
+    public void setLowerHbox(HBox lowerHbox) {
+        this.lowerHbox = lowerHbox;
+    }
+
+    public HBox getCenterHbox() {
+        return centerHbox;
+    }
+
+    public void setCenterHbox(HBox centerHbox) {
+        this.centerHbox = centerHbox;
+    }
 }
