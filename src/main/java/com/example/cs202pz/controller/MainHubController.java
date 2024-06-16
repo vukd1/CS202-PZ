@@ -29,6 +29,7 @@ public class MainHubController implements EventHandler<ActionEvent> {
                 for (StorefrontView sv : storefrontViews){
                     sv.close();
                 }
+                StorefrontView.setStorefrontCounter(0);
                 mainHubView.close();
                 break;
             case "open_storefront":
